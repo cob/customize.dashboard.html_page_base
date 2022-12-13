@@ -1,5 +1,5 @@
 module.exports = {
-  version: "1.0.0",
+  version: "1.0.1",
 
   questions: [{
     type: 'input',
@@ -9,6 +9,15 @@ module.exports = {
     validate: function (value) {
         var pass = value.match( /^[-0-9a-bA-Z]+$/i );
         return pass ? true : 'Only letters and numbers name, at least one';
+    }
+  },
+  {
+    type: 'input',
+    name: 'domainId',
+    message: 'What domainId to query?',
+    validate: function (value) {
+        var pass = value.match( /^[-0-9]+$/i );
+        return pass ? true : 'Only numbers, at least one';
     }
   }]
 }

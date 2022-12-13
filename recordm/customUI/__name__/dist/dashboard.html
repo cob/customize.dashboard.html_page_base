@@ -7,12 +7,12 @@
 
         <span id="userInfo"> </span>
     </h1>
-    <p> (your domain 1 has <span id="domainCount"></span> instances) </p>
+    <p> (your domain __domainId__ has <span id="domainCount"></span> instances) </p>
 </div>
 
 <script >
     const updateElement = (elemId) => (newInfo) => document.getElementById(elemId).innerHTML = newInfo.value
     
     cobRestApiWrapper.umLoggedin().then( userInfo => updateElement("userInfo")( { value: userInfo.username }) )
-    cobDashboardInfo.domainCount(1, "*", { changeCB: updateElement("domainCount") })
+    cobDashboardInfo.domainCount(__domainId__, "*", { changeCB: updateElement("domainCount") })
 </script>
